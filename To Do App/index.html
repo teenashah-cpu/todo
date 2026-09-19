@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>To Do List</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header-row">
+    <h1>To Do List</h1>
+    <button id="theme-toggle" title="Toggle dark mode">🌙</button>
+  </div>
+
+  <div class="input-section">
+    <div class="input-row">
+      <input type="text" id="task-input" placeholder="What needs doing?" autofocus>
+      <button id="add-btn">Add Task</button>
+    </div>
+    <button id="options-toggle" class="options-toggle">+ More options</button>
+    <div class="options-row" id="options-row">
+      <select id="priority-input">
+        <option value="low">Low priority</option>
+        <option value="medium" selected>Medium priority</option>
+        <option value="high">High priority</option>
+      </select>
+      <input type="date" id="due-input" placeholder="Due date">
+    </div>
+  </div>
+
+  <div class="controls-row">
+    <label>
+      Filter:
+      <select id="filter-select">
+        <option value="all">All</option>
+        <option value="active">Active</option>
+        <option value="done">Done</option>
+      </select>
+    </label>
+    <label>
+      Sort by:
+      <select id="sort-select">
+        <option value="none">None</option>
+        <option value="priority">Priority</option>
+        <option value="due">Due date</option>
+      </select>
+    </label>
+    <span id="task-counter"></span>
+  </div>
+
+  <div class="actions-row">
+    <button id="clear-done-btn">Clear completed</button>
+    <button id="export-btn">Export</button>
+    <button id="import-btn">Import</button>
+    <input type="file" id="import-file" accept="application/json" hidden>
+  </div>
+
+  <ul id="task-list"></ul>
+  <p id="empty-state" hidden>No tasks yet. Add one above.</p>
+
+  <script src="app.js"></script>
+</body>
+</html>

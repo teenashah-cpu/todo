@@ -1,0 +1,373 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 16px;
+  background: #f9fafb;
+  color: #222;
+  transition: background 0.2s, color 0.2s;
+}
+
+body.dark {
+  background: #111;
+  color: #eee;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+}
+
+#theme-toggle {
+  position: absolute;
+  right: 0;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+body.dark #theme-toggle {
+  border-color: #555;
+}
+
+.input-section {
+  margin-bottom: 24px;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+#task-input {
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+#add-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  background: #4a90d9;
+  color: #fff;
+  border: none;
+  transition: background 0.2s;
+}
+
+#add-btn:hover {
+  background: #3a7bc8;
+}
+
+#task-input, #priority-input, #due-input {
+  background: #fff;
+  color: #222;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+body.dark #task-input,
+body.dark #priority-input,
+body.dark #due-input {
+  background: #1f2937;
+  color: #eee;
+  border-color: #374151;
+}
+
+body.dark #add-btn {
+  background: #3b82f6;
+}
+
+body.dark #add-btn:hover {
+  background: #2563eb;
+}
+
+.options-toggle {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 4px 0;
+  margin-top: 8px;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+body.dark .options-toggle {
+  color: #aaa;
+}
+
+.options-toggle:hover {
+  color: #222;
+}
+
+body.dark .options-toggle:hover {
+  color: #fff;
+}
+
+.options-row {
+  display: none;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e5e7eb;
+}
+
+body.dark .options-row {
+  border-top-color: #374151;
+}
+
+.options-row.open {
+  display: flex;
+}
+
+#priority-input, #due-input {
+  flex: 1;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.controls-row select {
+  font-size: 14px;
+  padding: 2px 4px;
+}
+
+#task-counter {
+  color: #666;
+}
+
+body.dark #task-counter {
+  color: #aaa;
+}
+
+#empty-state {
+  text-align: center;
+  color: #888;
+}
+
+.actions-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.actions-row button {
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  background: #fff;
+  color: #222;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+body.dark .actions-row button {
+  background: #2c2c2c;
+  color: #eee;
+  border-color: #555;
+}
+
+#task-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#task-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  border-left: 4px solid transparent;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+
+#task-list li:hover {
+  background: #fafbfc;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+#task-list li.done {
+  background: #f3f4f6;
+}
+
+#task-list li.done:hover {
+  background: #eef0f3;
+}
+
+body.dark #task-list li {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+body.dark #task-list li:hover {
+  background: #2d3748;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+body.dark #task-list li.done {
+  background: #111827;
+}
+
+body.dark #task-list li.done:hover {
+  background: #1a202c;
+}
+
+#task-list li[draggable="true"] {
+  cursor: grab;
+}
+
+#task-list li.dragging {
+  opacity: 0.5;
+}
+
+#task-list li:focus {
+  outline: 2px solid #4a90d9;
+  outline-offset: 0;
+}
+
+#task-list li.priority-high {
+  border-left-color: #ef4444;
+}
+
+#task-list li.priority-medium {
+  border-left-color: #f59e0b;
+}
+
+#task-list li.priority-low {
+  border-left-color: #10b981;
+}
+
+#task-list li span {
+  flex: 1;
+  word-break: break-word;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+#task-list li.done span {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+#task-list li span[title="Click to edit"] {
+  cursor: text;
+}
+
+.due-label {
+  flex: none;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #f0f0f0;
+  color: #666;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+body.dark .due-label {
+  background: #2d3748;
+  color: #cbd5e0;
+}
+
+.due-label.today {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+body.dark .due-label.today {
+  background: #1e3a8a;
+  color: #93c5fd;
+}
+
+.due-label.tomorrow {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+body.dark .due-label.tomorrow {
+  background: #78350f;
+  color: #fde047;
+}
+
+.due-label.overdue {
+  background: #fee2e2;
+  color: #991b1b;
+  font-weight: 600;
+}
+
+body.dark .due-label.overdue {
+  background: #7f1d1d;
+  color: #fca5a5;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 4px;
+  font-size: 15px;
+}
+
+.priority-badge {
+  flex: none;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.priority-badge:hover {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+}
+
+body.dark .priority-badge {
+  background: #374151;
+  color: #e5e7eb;
+  border-color: #4b5563;
+}
+
+body.dark .priority-badge:hover {
+  background: #4b5563;
+  border-color: #6b7280;
+}
+
+#task-list li button {
+  cursor: pointer;
+}
