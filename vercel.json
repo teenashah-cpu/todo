@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/To%20Do%20App/index.html" },
+    { "source": "/style.css", "destination": "/To%20Do%20App/style.css" },
+    { "source": "/app.js", "destination": "/To%20Do%20App/app.js" }
+  ]
+}
