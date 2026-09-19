@@ -23,6 +23,11 @@ body.dark {
 
 h1 {
   text-align: center;
+  color: #4a90d9;
+}
+
+body.dark h1 {
+  color: #3b82f6;
 }
 
 #theme-toggle {
